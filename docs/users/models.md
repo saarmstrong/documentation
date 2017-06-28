@@ -256,13 +256,23 @@ This class uses the Erdiko Doctrine EntityTrait to allow it to get & set the ent
 * *public* **__construct(*EntityManager* $em = null)**
     * Creates an instance of the User service model.
     * Optional EntityManager parameter to substitute the one provided by the trait
-* *public* **setEntity()**
+* *public* **setEntity(*Entity/User* $entity)**
+    * Sets $_user to a provided *Entity/User*
 * *public* **getEntity()**
+    * Returns the current $_user value
 * *public* **unmarshall(*string* $encoded)**
+    * Unserializes a user object and returns a populated User Entity 
+    * Required by the iErdikoUser Interface
 * *protected* **createAnonymous()**
+    * Returns a new anonymous user entity
+    * Required by the iErdikoUser Interface
 * *public* *static* **getAnonymous()**
+    * Returns a new anonymous user entity
+    * Required by the iErdikoUser Interface
 * *public* **marshall(*string* $type = 'json')**
+    * Serializes a populated User Entity
 * *public* **getUsername()**
+    * Returns current $_user name value
 * *public* **getDisplayName()**
     * Returns current $_user name value
 * *public* **createUser(*array* $data)**
@@ -270,24 +280,35 @@ This class uses the Erdiko Doctrine EntityTrait to allow it to get & set the ent
 * *public* **getSalted(*string* $password)**
     * Returns password string concat'd with password salt 
 * *public* **authenticate(*string* $email, *string* $password)**
+    * Attempt to validate the user by querying the DB with the provided email and password. Returns populated User Entity if found, else returns false
 * *public* **isLoggedIn()**
     * Returns true if the user is logged in
 * *public* **isEmailUnique()**
     * Returns true if provided email was not found in the user table 
 * *public* **getRoles()**
+    * Return the friendly user role names
 * *public* **isAdmin()**
+    * Returns true if the current $_user has an Admin role
 * *public* **isAnonymous()**
+    * Returns true if the current $_user has an anonymous role 
 * *public* **hasRole(*string* $role = 'anonymous')**
+    * Returns true if current user has the provided role
 * *public* **getRole()**
     * Returns current $_user role value
 * *public* **getUsers(*int* $page = 0, *int* $pagesize = 100, *string* $sort = 'id', *string* $direction = 'asc')**
+    * Return all the users paginated by parameters
 * *public* **deleteUser(*int*|*string* $id)**
+    * Delete a user record for a provided id. Returns false if a user record is not found, and returns true if successful deletion
 * *public* **getUserId()**
-* *public* **save()**
+    * Returns current $_user id value
+* *public* **save(*object* $data)**
+    * Update an existing user or return a new user populated with data provided.
 * *public* **getById(*int*|*string* $id)**
+    * Return a user by id
 * *public* **getByParams(*array* $params)**
+    * Return users using params as query filter
 * *public* **getGatewayCustomerId(*int*|*string* $uid)**
-
+    * Return the Gateway Customer ID for a provided user id
 
 ### User/Log
 
@@ -302,10 +323,18 @@ This class uses the Erdiko Doctrine EntityTrait to allow it to get & set the ent
 ##### Methods
 
 * *public* **__construct()**
+    * Creates an instance of the User/Log service model. 
 * *public* **save(*Entity/User/Log* $logEntity)**
+    * Persist and save the provided User/Log entity
 * *public* **generateEntity(*int*|*string* $uid, *string* $event_log, *string* $event_data = null)**
+    * Return a populated User/Log entity with the provided values
 * *public* **getAllLogs()**
+    * Return all User/Log records as an array of User/Log entities
 * *public* **getLogs(*int* $page = 0, *int* $pagesize = 100, *string* $sort = 'id', $direction = 'asc')**
+    * Return an array of User/Log records based on provided parameters
 * *public* **getLogsByUserId(*int* $id, *int* $page = 0, *int* $pagesize = 100, *string* $sort = 'id', *string* $direction = 'asc')**
+    * Return an array of User/Log records for a provided user, filtered by additional parameters
 * *public* **findById(*int*|*string* $id)**
+    * Return a single User/Log entity for a provided ID
 * *public* **create(*int*|*string* $user_id = null, *string* $event_log = null, *string* $event_data = null)**
+    * Create a new User/Log entity, wrapper for **generateEntity()** method
