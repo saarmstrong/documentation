@@ -20,43 +20,43 @@ This entity represents the `roles` table.
 
 ##### Properties
 
-* *int* **$id**
+* *protected* *int* **$id**
     * Represents the autoincrement ID for Roles Table
-* *int* **$active**
+* *protected* *int* **$active**
     * Integer flag representing boolean; Role is active if value is "1"/true, inactive if value is "0"/false
-* *string* **$name**
+* *protected* *string* **$name**
     * String representing the Role name
-* *string* **$created**
+* *protected* *string* **$created**
     * Date string for the timestamp when the record was created
-* *string* **$updated**
+* *protected* *string* **$updated**
     * Date string for timestamp when the record was last updated
 
 ##### Methods
 
-* **getId()**
+* *public* **getId()**
     * Returns the current record $id
-* **setId(*int* $id)**
+* *public* **setId(*int* $id)**
     * Sets the current record $id with a provided value
-* **getActive()**
+* *public* **getActive()**
     * Returns the current record $active value
-* **setActive(*string* $active)**
+* *public* **setActive(*string* $active)**
     * Sets the current record $active with a provided value
-* **getName()**
+* *public* **getName()**
     * Returns the current record $name value
-* **setName(*string* $name)**
+* *public* **setName(*string* $name)**
     * Sets the current record $name with a provided value
-* **getCreated()**
+* *public* **getCreated()**
     * Returns the current record $created value
-* **setCreated(*string* $created)**
+* *public* **setCreated(*string* $created)**
     * Sets the current record $created with a provided value
-* **getUpdated()**
+* *public* **getUpdated()**
     * Returns the current record $updated value
-* **setUpdated(*string* $updated)**
+* *public* **setUpdated(*string* $updated)**
     * Sets the current record $updated with a provided value
-* **doStuffOnPrePersist()**
+* *public* **doStuffOnPrePersist()**
     * Lifecycle method called on initial record create via @PrePersist annotation
     * Calls existing **setCreated()** method with current timestamp as value
-* **doStuffOnPreMerge()**
+* *public* **doStuffOnPreMerge()**
     * Lifecycle method called on record update via @PreUpdate annotation
     * Calls existing **setUpdated()** method with current timestamp as value
 
@@ -66,71 +66,71 @@ This entity represents the `users` table.
 
 ##### Properties
 
-* *int* **$id**
+* *protected* *int* **$id**
     * Represents the autoincrement ID for Users Table
-* *string* **$email**
+* *protected* *string* **$email**
     * Represents the email for a user
-* *string* **$password**
+* *protected* *string* **$password**
     * Represents the user's hashed password 
-* *int* **$role**
+* *protected* *int* **$role**
     * Foreign Key ID to the role table; represents a user's role
-* *string* **$name**
+* *protected* *string* **$name**
     * Represents a user's name   
-* *string* **$gateway_customer_id**
+* *protected* *string* **$gateway_customer_id**
     * Foreign Key Id to a payment gateway table; represents a user's relationship to a payement gateway
     * _Please Note_: this will be implemented in a future feature.
-* *string* **$last_login**
+* *protected* *string* **$last_login**
     * Timestamp of the user's last successful login
-* *string* **$created**
+* *protected* *string* **$created**
     * Timestamp when the record was created
-* *string* **updated**
+* *protected* *string* **updated**
     * Timestamp when the record was last updated
 
 ##### Methods
 
-* **getId()**
+* *public* **getId()**
     * Returns the current record $id
-* **setId(*int* $id)**
+* *public* **setId(*int* $id)**
     * Sets the current record $id with a provided value
-* **getEmail()**
+* *public* **getEmail()**
     * Returns the current record $email value
-* **setEmail(*string* $email)**
+* *public* **setEmail(*string* $email)**
     * Sets the current record $email with a provided value
-* **getPassword()**
+* *public* **getPassword()**
     * Description: Returns the current record $password value
-* **setPassword(*password* $password)**
+* *public* **setPassword(*password* $password)**
     * Description: MD5 encodes the provided string and sets the current record's $password value to this hashed string
-* **getRole()**
+* *public* **getRole()**
     * Description: Returns the current record $role value
-* **setRole(*string* $role)**
+* *public* **setRole(*string* $role)**
    * Sets the current record $role value with a provided value
-* **getName()**
+* *public* **getName()**
     * Returns the current record $name value
-* **setName(*string* $name)**
+* *public* **setName(*string* $name)**
    * Sets the current record $name with a provided value
-* **getGatewayCustomerId()**
+* *public* **getGatewayCustomerId()**
     * Returns the current record gateway_customer_id value
-* **setGatewayCustomerId(*int* $gateway_customer_id)**
+* *public* **setGatewayCustomerId(*int* $gateway_customer_id)**
     * Sets the current record $gateway_customer_id with a provided value
-* **getLastLogin()**
+* *public* **getLastLogin()**
     * Returns the current record $last_login value
-* **setLastLogin(*string* $last_login)**
+* *public* **setLastLogin(*string* $last_login)**
     * Sets the current record $last_login to the provided value
-* **getCreatedAt()**
+* *public* **getCreatedAt()**
     * Returns the current record $created_at value
-* **setCreatedAt(*string* $created_at)**
+* *public* **setCreatedAt(*string* $created_at)**
     * Sets the current record $created_at to the provided value
-* **getUpdatedAt()**
+* *public* **getUpdatedAt()**
     * Returns the current record $created_at value
-* **setUpdatedAt()**
+* *public* **setUpdatedAt()**
     * Sets the current record $updated_at to the provided value
-* **doStuffOnPrePersist()**
+* *public* **doStuffOnPrePersist()**
     * Lifecycle method called on initial record create via @PrePersist annotation
     * Calls existing **setCreatedAt()** method with current timestamp as value
-* **doStuffOnPreMerge()**
+* *public* **doStuffOnPreMerge()**
     * Lifecycle method called on record update via @PreUpdate annotation
     * Calls existing **setUpdatedAt()** method with current timestamp as value
-* **marshall(*string* $type = 'json')**
+* *public* **marshall(*string* $type = 'json')**
     * Method that returns a current record as a 'safe' datatype
     * Used for serializing a record  
 
@@ -140,49 +140,172 @@ This entity represents the `user_event_log` table.
 
 ##### Properties
 
-* *int* **$id**
+* *protected* *int* **$id**
     * Represents the autoincrement ID for User Event Log Table
-* *int* **$user_id**
+* *protected* *int* **$user_id**
     * Foreign Key ID to the role table; represents a user record and associates it to this log record
-* *string* **$event_log**
+* *protected* *string* **$event_log**
     * A string indicating the type of user event logged
-* *string* **$event_data**
+* *protected* *string* **$event_data**
     * A JSON serialized object string representing a user logged event
-* *string* **$created_at**
+* *protected* *string* **$created_at**
     * Date string for the timestamp when the record was created
 
 ##### Methods
 
-* **getId()**
+* *public* **getId()**
     * Returns the current record $id
-* **setId(*int* $id)**
+* *public* **setId(*int* $id)**
     * Sets the current record $id
-* **getUserId()**
+* *public* **getUserId()**
     * Returns the current record $user_id value
-* **setUserId(*string* $userId)**
+* *public* **setUserId(*string* $userId)**
     * Sets the current record $user_id to the provided value
-* **getEventLog()**
+* *public* **getEventLog()**
     * Returns the current record $event_log value
-* **setEventLog(*string* $eventLog)**
+* *public* **setEventLog(*string* $eventLog)**
     * Sets the current record $event_log to the provided value
-* **getEventData()**
+* *public* **getEventData()**
     * `json_decodes` and returns the current record $event_data value
-* **setEventData(*string* $eventData)**
+* *public* **setEventData(*string* $eventData)**
     * `json_encodes` the provided value and sets this to the current record $event_data value
-* **getCreatedAt()**
+* *public* **getCreatedAt()**
     * Returns the current record $created_at value
-* **setCreatedAt(*string* $created)**
+* *public* **setCreatedAt(*string* $created)**
     * Sets the current record $created_at to the provided value
-* **doStuffOnPrePersist()**
+* *public* **doStuffOnPrePersist()**
     * Lifecycle method called on initial record create via @PrePersist annotation
     * Calls existing **setCreatedAt()** method with current timestamp as value
 
-## Models
+## Service Models
 
 ### Mailgun
 
+The Mailgun service model provides an interface to Mailgun to send emails following user events.
+
+This service model extends the `Mailgun\Mailgun` model provided by the Mailgun composer package.
+
+##### Properties
+
+* *string* **$domain**
+    * String representing the sender domain for this erdiko instance. 
+
+##### Methods
+
+* *public* **__construct()**
+    * Creates an instance of the Mailgun service model.
+    * Loads a config file and sets some local variables from this loaded config, before calling the parent constructor in `Mailgun\Mailgun`
+* *protected* **getDefaults()**
+    * Returns an array of default values for mailgun settings
+* *public* **sendMail(*object* $postData)**
+    * Sends an email with provided data. 
+    * Filters the provided $postData object after typecasting to an array, returns the method call to the parent class `sendMessage` method call
+* *public* **forgotPassword(*string* $email, *string* $html)**
+    * Sends an email to a provided email using the provided HTML template string
+    * Calls the class `sendMail` method with provided values
+
 ### Role
+
+The Role service model provides an interface to create and manipulate role records via the Role entity.
+
+This class uses the Erdiko Doctrine EntityTrait to allow it to get & set the entity manager.
+
+##### Properties
+
+* *private* *EntityManager* **$_em**
+
+##### Methods
+
+* *public* **__construct()**
+    * Creates an instance of the Role service model.
+* *public* **create(*object* $data)**
+    * Create a new role entity instance
+* *public* **findById(*int*|*string* $id)**
+    * Return a Role entity by id
+* *public* **findByName(*string* $name)**
+    * Return a Role entity with a name given
+* *public* **findByStatus(*int* $status)**
+    * Return an array of Roles that have the provided status
+* *public* **getCountByRole(*string* $role)**
+    *  Return a count for role records for the provided role name
+* *public* **getUsersForRole(*string* $role)**
+    * Return a list of users for a provided role name
+* *public* **save(*array* $data)**
+    * Save/Persist a new role entity for the provided values
+* *public* **getEntity(*array* $filter)**
+    * Returns a Role entity record based on the provided parameters, if none found return an empty entity
+* *public* **delete(*string* $id)**
+    * Delete a Role entity record for the provided id
 
 ### User
 
+The User service model provides an interface to create and manipulate user records via the User entity.
+
+This class uses the Erdiko Doctrine EntityTrait to allow it to get & set the entity manager.
+
+##### Properties
+
+* *CONST* PASSWORDSALT
+    * String used to salt a password before hashing
+    * *Note* This will eventually be moved to a config file, currently it is just a class constant
+* *protected* *Entity/User* $_user
+* *protected* *EntityManager* $_em 
+
+##### Methods
+
+* *public* **__construct(*EntityManager* $em = null)**
+    * Creates an instance of the User service model.
+    * Optional EntityManager parameter to substitute the one provided by the trait
+* *public* **setEntity()**
+* *public* **getEntity()**
+* *public* **unmarshall(*string* $encoded)**
+* *protected* **createAnonymous()**
+* *public* *static* **getAnonymous()**
+* *public* **marshall(*string* $type = 'json')**
+* *public* **getUsername()**
+* *public* **getDisplayName()**
+    * Returns current $_user name value
+* *public* **createUser(*array* $data)**
+    * Create a new entity and set it to current user model
+* *public* **getSalted(*string* $password)**
+    * Returns password string concat'd with password salt 
+* *public* **authenticate(*string* $email, *string* $password)**
+* *public* **isLoggedIn()**
+    * Returns true if the user is logged in
+* *public* **isEmailUnique()**
+    * Returns true if provided email was not found in the user table 
+* *public* **getRoles()**
+* *public* **isAdmin()**
+* *public* **isAnonymous()**
+* *public* **hasRole(*string* $role = 'anonymous')**
+* *public* **getRole()**
+    * Returns current $_user role value
+* *public* **getUsers(*int* $page = 0, *int* $pagesize = 100, *string* $sort = 'id', *string* $direction = 'asc')**
+* *public* **deleteUser(*int*|*string* $id)**
+* *public* **getUserId()**
+* *public* **save()**
+* *public* **getById(*int*|*string* $id)**
+* *public* **getByParams(*array* $params)**
+* *public* **getGatewayCustomerId(*int*|*string* $uid)**
+
+
 ### User/Log
+
+The User/Log service model provides an interface to create an manipulate user event log records via the User/Log entity.
+
+This class uses the Erdiko Doctrine EntityTrait to allow it to get & set the entity manager.
+
+##### Properties
+
+* *protected* *EntityManager* $_em 
+
+##### Methods
+
+* *public* **__construct()**
+* *public* **save(*Entity/User/Log* $logEntity)**
+* *public* **generateEntity(*int*|*string* $uid, *string* $event_log, *string* $event_data = null)**
+* *public* **getAllLogs()**
+* *public* **getLogs(*int* $page = 0, *int* $pagesize = 100, *string* $sort = 'id', $direction = 'asc')**
+* *public* **getLogsByUserId(*int* $id, *int* $page = 0, *int* $pagesize = 100, *string* $sort = 'id', *string* $direction = 'asc')**
+* *public* **findById(*int*|*string* $id)**
+* *public* **create(*int*|*string* $user_id = null, *string* $event_log = null, *string* $event_data = null)**
