@@ -121,7 +121,7 @@ This entity represents the `users` table.
 * **setCreatedAt(*string* $created_at)**
     * Sets the current record $created_at to the provided value
 * **getUpdatedAt()**
-    * Returns the current record created_at value
+    * Returns the current record $created_at value
 * **setUpdatedAt()**
     * Sets the current record $updated_at to the provided value
 * **doStuffOnPrePersist()**
@@ -154,17 +154,25 @@ This entity represents the `user_event_log` table.
 ##### Methods
 
 * **getId()**
-    * Returns the current record id
+    * Returns the current record $id
 * **setId(*int* $id)**
-    * Sets the current record id
+    * Sets the current record $id
 * **getUserId()**
+    * Returns the current record $user_id value
 * **setUserId(*string* $userId)**
+    * Sets the current record $user_id to the provided value
 * **getEventLog()**
+    * Returns the current record $event_log value
 * **setEventLog(*string* $eventLog)**
+    * Sets the current record $event_log to the provided value
 * **getEventData()**
+    * `json_decodes` and returns the current record $event_data value
 * **setEventData(*string* $eventData)**
+    * `json_encodes` the provided value and sets this to the current record $event_data value
 * **getCreatedAt()**
+    * Returns the current record $created_at value
 * **setCreatedAt(*string* $created)**
+    * Sets the current record $created_at to the provided value
 * **doStuffOnPrePersist()**
     * Lifecycle method called on initial record create via @PrePersist annotation
     * Calls existing **setCreatedAt()** method with current timestamp as value
