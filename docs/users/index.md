@@ -115,3 +115,11 @@ Here is an example filename:
 This directory contains all the source files for the package itself: Entities, Models, Controllers, Validator Classes and template partials.
 
 ### tests
+
+This directory contains all the phpunit tests for this package.
+
+## Unit Testing
+
+We provide unit tests via PHPUnit and we constantly update these tests with feature updates and bug fixes. These tests are run by our CI environment on every commit and build, but you can also run these tests manually from the `tests` directory:
+
+`phpunit AllTests`

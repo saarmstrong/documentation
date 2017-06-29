@@ -310,9 +310,9 @@ This class uses the Erdiko Doctrine EntityTrait to allow it to get & set the ent
 * *public* **getGatewayCustomerId(*int*|*string* $uid)**
     * Return the Gateway Customer ID for a provided user id
 
-### User/Log
+### User/Event/Log
 
-The User/Log service model provides an interface to create an manipulate user event log records via the User/Log entity.
+The User/Event/Log service model provides an interface to create an manipulate user event log records via the User/Log entity.
 
 This class uses the Erdiko Doctrine EntityTrait to allow it to get & set the entity manager.
 
